@@ -57,6 +57,7 @@ export class BoardComponent implements OnInit {
 
 // creamos la funcion para recibir la infomracion del hijo(card)
   decide(value: any) {
+
     console.log("valor ",value );
 
     setTimeout(()=>{
