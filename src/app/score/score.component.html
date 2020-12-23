@@ -1,7 +1,8 @@
 <div class="score">
   <p>
-    <input type="text" placeholder="Put your goal of attempts" (input)="score = $event.target">
+    <input type="text" placeholder="Put your goal of attempts" (input)="score = $event">
     <button (click)="enviar()">START</button>
   </p>
-  <h3>Attempts: {{score.value}} // Remaining attempts: {{score2}} </h3>
+  <h3>Attempts: {{score.target.value}} // Remaining attempts: {{score2}} </h3>
+  <h1 *ngIf="score2 == 0" >Game over!!</h1>
 </div>

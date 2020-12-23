@@ -1,4 +1,4 @@
-<app-score (user_goal)="enviar($event)" [score2]="resultado"></app-score>
+<app-score (send_to_board)="recibir($event)" [score2]="resultado"></app-score>
 <div class="board">
   <app-card *ngFor="let card of cards" [card]="card" (cardClick)="decide($event)">
   </app-card>

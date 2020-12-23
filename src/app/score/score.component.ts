@@ -7,10 +7,11 @@ import { Component, OnInit ,Input,Output, EventEmitter } from '@angular/core';
 })
 export class ScoreComponent implements OnInit {
 
-  @Input() score:any = 0
-  @Input() score2:number= 0
 
-  @Output() user_goal = new EventEmitter<any>()
+  @Input() score2:number|null=null
+
+  @Output() send_to_board = new EventEmitter<any>()
+  score:any|null = null // los datos que queremos enviar al padre
 
 
   constructor() {
@@ -21,7 +22,7 @@ export class ScoreComponent implements OnInit {
   }
 
   enviar() {
-    this.user_goal.emit(this.score.value);
+    this.send_to_board.emit(this.score.target.value);
   }
 
 }
