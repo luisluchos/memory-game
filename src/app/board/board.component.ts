@@ -13,6 +13,7 @@ export class BoardComponent implements OnInit {
   names: string[] = [];
   cards: card[] = [];
   score_board: number = 10;
+  resultado: number = 0;
 
 
   caja_seleccion_objetos : any[]=[]
@@ -53,6 +54,11 @@ export class BoardComponent implements OnInit {
   }
 
 
+  enviar(value: any) {
+    console.log("score ",value);
+    this.score_board = value
+  }
+
 
 // creamos una "caja" metemos con un push los dos nombres,
 // si coinciden cambiamos el hidden a true, si no lo pasamos a false.
@@ -64,9 +70,9 @@ export class BoardComponent implements OnInit {
       var objetos_select = value
       this.caja_seleccion_objetos.unshift(objetos_select) //contiene el nombre y si es visible
 
-      var x = this.caja_seleccion_objetos.length
-      console.log(x)
-      if (x % 2 == 0) {  //si el nº es par
+      var length_seleccion_user = this.caja_seleccion_objetos.length
+      console.log(length_seleccion_user)
+      if (length_seleccion_user % 2 == 0) {  //si el nº es par
         console.log("es verdad son dos")
 
         if (this.caja_seleccion_objetos[0].name!=this.caja_seleccion_objetos[1].name){
@@ -75,8 +81,10 @@ export class BoardComponent implements OnInit {
           this.caja_seleccion_objetos[0].visible=false
           this.caja_seleccion_objetos[1].visible=false
         }
+        this.resultado= this.score_board-(length_seleccion_user/2) //actualizamos el marcador cada vez que haga un intento
+        console.log("resultado",this.resultado)
 
-        this.score_board = this.score_board-1 //actualizamos el marcador cada vez que haga un intento
+
       }
     },1000);
 

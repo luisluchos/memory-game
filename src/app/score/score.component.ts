@@ -1,4 +1,4 @@
-import { Component, OnInit ,Input } from '@angular/core';
+import { Component, OnInit ,Input,Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-score',
@@ -7,12 +7,21 @@ import { Component, OnInit ,Input } from '@angular/core';
 })
 export class ScoreComponent implements OnInit {
 
-  @Input() score:number; 
+  @Input() score:any = 0
+  @Input() score2:number= 0
+
+  @Output() user_goal = new EventEmitter<any>()
 
 
-  constructor() { }
+  constructor() {
+   }
 
   ngOnInit(): void {
+
+  }
+
+  enviar() {
+    this.user_goal.emit(this.score.value);
   }
 
 }
