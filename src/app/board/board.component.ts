@@ -51,6 +51,8 @@ export class BoardComponent implements OnInit {
 
 // creamos la funcion para recibir la infomracion del hijo(score)
   recibir(value: any) {
+    this.resultado= value
+    this.caja_seleccion_objetos=[]
     this.score_board = value
     console.log("scoreboard ",this.score_board );
   }
