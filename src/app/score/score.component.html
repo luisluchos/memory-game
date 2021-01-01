@@ -2,7 +2,8 @@
   <p>
     <input type="text" placeholder="Put your goal of attempts" (input)="score = $event">
     <button (click)="enviar()">START</button>
+    <button (click)="reload()">RELOAD</button>
   </p>
-  <h3>Attempts: {{score.target.value}} // Remaining attempts: {{score2}} </h3>
+  <h3>Attempts: {{score.target.value}} // Remaining attempts: {{score2}}</h3>
   <h1 *ngIf="score2 == 0" >Game over!!</h1>
 </div>

@@ -52,9 +52,8 @@ export class BoardComponent implements OnInit {
 // creamos la funcion para recibir la infomracion del hijo(score)
   recibir(value: any) {
     this.resultado= value
-    this.caja_seleccion_objetos=[]
+    this.caja_seleccion_objetos=[] //vaciamos la caja
     this.score_board = value
-    console.log("scoreboard ",this.score_board );
   }
 
 // creamos la funcion para recibir la infomracion del hijo(card)
@@ -65,7 +64,7 @@ export class BoardComponent implements OnInit {
     setTimeout(()=>{
       // creamos una "caja" cada vez que se ejecuta la funion decide()  con un unshift metemos el valor en la caja
       var objetos_select = value
-      this.caja_seleccion_objetos.unshift(objetos_select) //contiene el nombre y la prpiedad visible
+      this.caja_seleccion_objetos.unshift(objetos_select) //contiene el nombre y la propiedad visible
 
       var length_seleccion_user = this.caja_seleccion_objetos.length
       console.log(length_seleccion_user)

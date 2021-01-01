@@ -24,5 +24,8 @@ export class ScoreComponent implements OnInit {
   enviar() {
     this.send_to_board.emit(this.score.target.value);
   }
+  reload() {
+    window.location.reload();
+  }
 
 }
