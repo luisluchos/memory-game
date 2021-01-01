@@ -2,8 +2,9 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 export type card = {
   name: string,
-  visible: boolean
-  
+  visible: boolean,
+  color: string
+
 }
 
 @Component({
@@ -13,7 +14,7 @@ export type card = {
 })
 export class CardComponent implements OnInit {
 
-  @Input() card: card = {name: '', visible: false};
+  @Input() card: card = {name: '', visible: true, color: "grey"};
 
 
   @Output() cardClick: EventEmitter<card> = new EventEmitter<card>();
@@ -25,12 +26,15 @@ export class CardComponent implements OnInit {
 
   hasClicked(event: any) {
     console.log("click=",event);
-    while(this.card.visible == false){
+    this.card.visible = !this.card.visible;
+    this.cardClick.emit(this.card);
+
+  /*  while(this.card.visible == false){
       this.card.visible = !this.card.visible;
       this.cardClick.emit(this.card);
       console.log("cc:", this.cardClick);
 
-    }
+    }*/
 
   }
 

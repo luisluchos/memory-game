@@ -30,7 +30,7 @@ export class BoardComponent implements OnInit {
 
     this.names = tempCards;
     this.names = this.shuffle(this.names);
-    this.cards = this.names.map(name => ({name: name, visible: false}));
+    this.cards = this.names.map(name => ({name: name, visible: false, color:"grey"}));
 
   }
 
@@ -72,12 +72,19 @@ export class BoardComponent implements OnInit {
       if (length_seleccion_user % 2 == 0) {  //si el length del array es par, desencadenará una serie de condicionales
         console.log("es verdad son dos")
 
-        if (this.caja_seleccion_objetos[0].name!=this.caja_seleccion_objetos[1].name){ // si la posicion 1 no coincide con la 2, esconderá las tarjetas
+        if (this.caja_seleccion_objetos[0].name == this.caja_seleccion_objetos[1].name){ // si la posicion 1 no coincide con la 2, esconderá las tarjetas
           console.log("es verdad no son iguales")
           console.log("tenemos en la caja" ,this.caja_seleccion_objetos)
+          this.caja_seleccion_objetos[0].visible=true
+          this.caja_seleccion_objetos[1].visible=true
+          this.caja_seleccion_objetos[0].color="green"
+          this.caja_seleccion_objetos[1].color="green"
+
+        } else {
           this.caja_seleccion_objetos[0].visible=false
           this.caja_seleccion_objetos[1].visible=false
         }
+
 
         this.resultado= this.score_board-(length_seleccion_user/2) //actualizamos el marcador cada vez que haga un intento
         console.log("resultado",this.resultado)

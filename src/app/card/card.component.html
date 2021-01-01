@@ -1,7 +1,7 @@
 
-<div class="card" (click)="hasClicked($event)">
-  <div>
-    <h3 [hidden]="!card.visible">{{card.name}}</h3>
+<div  [ngStyle]="{'pointer-events': card.visible === true ? 'none': ''}" class="card"  (click)="hasClicked($event)">
+  <div >
+    <h3 [ngStyle]="{'color' : card.color === 'grey' ? 'white':'#90EE90'}"   [hidden]="!card.visible">{{card.name}}</h3>
     <p>{{card.visible ? "" : "?"}}</p>
 
   </div>
