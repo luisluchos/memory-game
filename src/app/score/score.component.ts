@@ -11,7 +11,7 @@ export class ScoreComponent implements OnInit {
   @Input() score2:number|null=null
 
   @Output() send_to_board = new EventEmitter<any>()
-  score:any|null = null // los datos que queremos enviar al padre
+  score:any = 0 // los datos que queremos enviar al padre
 
 
   constructor() {

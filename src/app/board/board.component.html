@@ -1,5 +1,7 @@
+<!-- <div [ngStyle]="{'pointer-events': click === true ? 'none': 'auto'}"> -->
 <app-score (send_to_board)="recibir($event)" [score2]="resultado"></app-score>
 <div class="board">
-  <app-card *ngFor="let card of cards" [card]="card" (cardClick)="decide($event)">
+   <app-card *ngFor="let cardi of cards" [card]="cardi" (cardClick)="decide($event)"> <!-- al input card del componente cards le pasamos la información de cardi -->
   </app-card>
 </div>
+<!-- </div> -->

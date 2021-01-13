@@ -18,19 +18,21 @@ export class BoardComponent implements OnInit {
 
 
 
+
   constructor() {
     this.names = ['adonay', 'jacobo', 'elisa', 'elisabet', 'luis-marin', 'luis-clar', 'mónica', 'sunil', 'angelines', 'paloma', 'jordi', 'marçal'];
-    let tempCards: string[] = [];
 
-    this.names.forEach(card => {
+    let tempCards: string[] = [];
+    this.names.forEach(card => {  //iteramos el array names, y haces un push de cada elemento tempCards
       tempCards.push(card);
       tempCards.push(card);
-      console.log(tempCards);
     })
 
-    this.names = tempCards;
-    this.names = this.shuffle(this.names);
-    this.cards = this.names.map(name => ({name: name, visible: false, color:"grey"}));
+    this.names = tempCards;  //names será ahora igual a tempcards
+    this.names = this.shuffle(this.names); // lo barajamos
+    this.cards = this.names.map(name => ({name: name, visible: false, color:"grey"})); //lo guardamos en un obejeto, con las porpiedades visible y color
+    console.log(this.cards);
+
 
   }
 
@@ -58,7 +60,6 @@ export class BoardComponent implements OnInit {
 
 // creamos la funcion para recibir la infomracion del hijo(card)
   decide(value: any) {
-
     console.log("valor ",value );
 
     setTimeout(()=>{
@@ -67,7 +68,6 @@ export class BoardComponent implements OnInit {
       this.caja_seleccion_objetos.unshift(objetos_select) //contiene el nombre y la propiedad visible
 
       var length_seleccion_user = this.caja_seleccion_objetos.length
-      console.log(length_seleccion_user)
 
       if (length_seleccion_user % 2 == 0) {  //si el length del array es par, desencadenará una serie de condicionales
         console.log("es verdad son dos")
@@ -84,13 +84,14 @@ export class BoardComponent implements OnInit {
           this.caja_seleccion_objetos[0].visible=false
           this.caja_seleccion_objetos[1].visible=false
         }
-
+        console.log("time out");
 
         this.resultado= this.score_board-(length_seleccion_user/2) //actualizamos el marcador cada vez que haga un intento
         console.log("resultado",this.resultado)
       }
-    },1000);
+    },2000);
 
+    console.log("time output");
   }
 
 }
